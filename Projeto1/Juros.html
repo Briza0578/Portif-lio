@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de Juros</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="d-flex">
+
+  <!-- Sidebar -->
+  <aside class="col-md-3 cor2 text-white d-flex flex-column p-3 min-vh-100">
+    <h4 class="mb-4">
+      <i class="bi bi-calculator"></i>
+      <span class="text-white">Calculadora <span class="text-info">Online</span></span>
+    </h4>
+
+    <nav class="nav flex-column">
+      <a href="index.html" class="botão2 nav-link text-white">Calculadora Normal</a>
+      <a href="VelMed.html" class="botão2 nav-link text-white">Velocidade Média</a>
+      <a href="Juros.html" class="botão2 nav-link text-white">Juros</a>
+      <a href="basca.html" class="botão2 nav-link text-white">Bhaskara</a>
+    </nav>
+  </aside>
+
+  <!-- Conteúdo principal -->
+  <main class="flex-grow-1 min-vh-100 py-5 px-4">
+    <div class="container">
+
+      <section class="mb-5">
+           <div class="row text-center">
+          <div class="col-12 col-md-4 mb-3">
+            <input id="capital" class="form-control" placeholder="Capital (valor inicial)">
+          </div>
+
+          <div class="col-12 col-md-4 mb-3">
+            <input id="taxa" class="form-control" placeholder="Taxa (%)">
+          </div>
+
+          <div class="col-12 col-md-4 mb-3">
+            <input id="tempo" class="form-control" placeholder="Tempo (dias, meses, anos)">
+          </div>
+
+          <div class="col-12 col-md-6 mb-3">
+            <input id="jurosSimples" class="form-control text-center" placeholder="Juros simples" readonly>
+          </div>
+
+          <div class="col-12 col-md-6 mb-3">
+            <input id="montSimples" class="form-control text-center" placeholder="Montante simples" readonly>
+          </div>
+
+          <div class="col-12 col-md-6 mb-3">
+            <input id="jurosComposto" class="form-control text-center" placeholder="Juros composto" readonly>
+          </div>
+
+          <div class="col-12 col-md-6 mb-3">
+            <input id="montComposto" class="form-control text-center" placeholder="Montante composto" readonly>
+          </div>
+
+          <div class="col-12">
+            <button class="btn botão2 text-white" onclick="calcularSimples()">Calcular</button>
+          </div>
+        </div>
+      </section>          
+
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+  <!-- Scripts de cálculo -->
+  <script>
+    function calcularSimples() {
+  let capital = parseFloat(document.getElementById("capital").value);
+  let taxa = parseFloat(document.getElementById("taxa").value) / 100;
+  let tempo = parseFloat(document.getElementById("tempo").value);
+
+  // Juros simples
+  let juros = capital * taxa * tempo;
+  let montante = capital + juros;
+
+  // Juros compostos (correção aqui ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓)
+  let montante2 = capital * Math.pow(1 + taxa, tempo);
+  let juros2 = montante - capital;
+
+  document.getElementById("jurosSimples").value = "O Juros é: " + juros.toFixed(2);
+  document.getElementById("montSimples").value = "O Montante é: " + montante.toFixed(2);
+
+  document.getElementById("jurosComposto").value = "O Juros é: " + juros2.toFixed(2);
+  document.getElementById("montComposto").value = "O Montante é: " + montante2.toFixed(2);
+}
+
+  </script>
+</body>
+</html>

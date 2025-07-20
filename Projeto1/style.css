@@ -1,0 +1,80 @@
+body{
+    background-color: #e3e5d7;
+}
+
+.cima{
+    background-color: #586875;
+}
+.cima2{
+    background-color: #4078b7;
+}
+.cor1{
+    background-color: #a5c8ca;
+}
+
+.cor2{
+    background-color: #0c3c74;
+    height: 100vh;
+}
+
+.botão{
+    background-color: #f6eddc;
+    color: black;
+}
+.botão2{
+    background-color: #0c3c74;
+    color: white;
+}
+.botão2:hover {
+  background-color: #d95b00; /* cor no hover (um tom mais escuro) */
+  color: white;
+}
+
+.botão:hover {
+    background-color: #e3e5d7; /* Ou qualquer outra cor que contraste bem com o fundo do card */
+    color: black;
+    border: 1px solid #00000020; /* Um leve contorno opcional para destacar */
+    transition: 0.3s;
+}
+.igual{
+    grid-column: span 4;
+}
+
+
+
+
+.calculadora {
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.tela {
+    width: 95%;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.potons2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.potons {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+p{
+    color: black;
+}
+
+
